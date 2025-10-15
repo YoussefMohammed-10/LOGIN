@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+
+body {
+  margin: 0;
+  font-family: 'Tajawal', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 230px;
+}
+
+/* خلفية الصفحة والالوان بتاعت الكلام والظل*/
+:root {
+  background-color: #efe9ff;
+  --card-color: #ffffff;
+  --primary-color: #6a5cff;
+  --primary-color-strong: #5f42ff;
+  --text-color: #202235;
+  --muted-text-color: #73788a;
+  --field-background: #f3f2fb;
+  --focus-ring: rgba(106, 92, 255, 0.25);
+  --soft-shadow: 0 20px 60px rgba(32, 34, 53, 0.12);
+}
+
+*{ box-sizing: border-box; }
+html, body { height: 100%; }
+
+/* الجملة بتاعت الوصف */
+.form-subtitle {
+  margin: 0 0 24px 0;
+  color: var(--muted-text-color);
+  text-align: center;
+}
+
+/* مربع التسجيل */
+.login-card {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  background: var(--card-color);
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+/* الحته الشمال */
+.login-form {
+  padding: 56px 56px 40px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* العنوان */
+.form-title {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+.form-fields { display: grid; gap: 16px; }
+
+.input-field { display: grid; gap: 8px; }
+
+/* اماكن كتابة البيانات */
+.input-control {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--field-background);
+  border-radius: 20px;
+  padding: 14px 14px;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+}
+.input-control input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  font: inherit;
+  color: var(--text-color);
+}
+
+/* الزرار */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.primary-button {
+  appearance: none;
+  border: 0;
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-color-strong) 100%);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+ 
+}
+
+/* 🔹 الفاصل بين خيارات الدخول */
+.alternative-login-separator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+ 
+}
+
+.separator-line { flex: 1; height: 1px; background: #ecebf7; }
+.oauth-buttons { display: grid; gap: 10px; margin-top: 8px; }
+
+/* الزرارين بتوع تسجيل */
+.two-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  background: #ffffff;
+  border: 1px solid #756ae8;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.two-button:hover {
+  border-color: #030113;
+  background: #f8f8ff;
+}
+
+.two-icon {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* الصورة الي ع اليمين */
+.visual-area {
+  position: relative;
+  background:
+    radial-gradient(1200px 800px at -10% -20%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 60%) no-repeat,
+    linear-gradient(135deg, #795eff 0%, #4c34ff 100%);
+  padding: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.panel-image {
+  width: 80%;
+  border-radius: 18px;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
+   
+}
+
+
+/* تنفع للموبايل */
+@media (max-width: 980px) {
+  .login-card { grid-template-columns: 1fr; }
+  .visual-area { order: -1; padding: 32px; }
+  .login-form { padding: 36px 24px 28px 24px; }
+}
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="outer-shell">
+        <div class="login-card">
+          <section class="login-form" aria-label="Login form">
+            <h1 class="form-title">Login</h1>
+            <p class="form-subtitle"> Lorem ipsum dolor sit amet consectetur. </p>
+
+            <!-- فورم التسجيل -->
+            <form class="form-fields" action="#" method="post" autocomplete="on">
+              <div class="input-field">
+                <label for="username-input" class="input-label">Username</label>
+                <div class="input-control">
+                  <span class="input-icon" aria-hidden="true">👤</span>
+                  <input id="username-input" name="username" type="text" placeholder="Enter your username" autocomplete="username" required>
+                </div>
+              </div>
+
+              <div class="input-field">
+                <label for="password-input" class="input-label">Password</label>
+                <div class="input-control">
+                  <span class="input-icon" aria-hidden="true">🔒</span>
+                  <input id="password-input" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="primary-button" type="submit">Login Now</button>
+              </div>
+            </form>
+
+           <!-- الزرارين -->
+            <div class="two-buttons">
+            <button class="two-button" type="button">
+                <img class="two-icon" src="https://www.google.com/favicon.ico" alt="Google logo">
+                <span class="two-text">Login with Google</span>
+            </button>
+
+            <button class="two-button" type="button">
+                <i class="fa-brands fa-facebook-f"></i>
+                <span class="two-text">Login with Facebook</span>
+            </button>
+            </div>
+
+          </section>
+
+         <!-- الحتة اليمين  -->
+          <aside class="visual-area" aria-hidden="true">
+            <div class="decorative-circle" aria-hidden="true"></div>
+              <img class="panel-image" src="pics art.png" alt="Person using tablet">
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
