@@ -7,19 +7,18 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-
 body {
   margin: 0;
   font-family: 'Tajawal', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 230px;
+  padding: 40px;
+  background-color: #efe9ff;
 }
 
-/* خلفية الصفحة والالوان بتاعت الكلام والظل*/
+/* الألوان العامة */
 :root {
-  background-color: #efe9ff;
   --card-color: #ffffff;
   --primary-color: #6a5cff;
   --primary-color-strong: #5f42ff;
@@ -30,26 +29,27 @@ body {
   --soft-shadow: 0 20px 60px rgba(32, 34, 53, 0.12);
 }
 
-*{ box-sizing: border-box; }
+* { box-sizing: border-box; }
 html, body { height: 100%; }
 
-/* الجملة بتاعت الوصف */
+
 .form-subtitle {
   margin: 0 0 24px 0;
   color: var(--muted-text-color);
   text-align: center;
 }
 
-/* مربع التسجيل */
 .login-card {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
   background: var(--card-color);
   border-radius: 40px;
   overflow: hidden;
+  box-shadow: var(--soft-shadow);
+  max-width: 900px;
+  width: 100%;
 }
 
-/* الحته الشمال */
 .login-form {
   padding: 56px 56px 40px 56px;
   display: flex;
@@ -57,18 +57,16 @@ html, body { height: 100%; }
   gap: 20px;
 }
 
-/* العنوان */
 .form-title {
   margin: 0 0 8px 0;
   font-weight: 700;
   letter-spacing: 0.4px;
   text-align: center;
 }
-.form-fields { display: grid; gap: 16px; }
 
+.form-fields { display: grid; gap: 16px; }
 .input-field { display: grid; gap: 8px; }
 
-/* اماكن كتابة البيانات */
 .input-control {
   display: flex;
   align-items: center;
@@ -88,7 +86,6 @@ html, body { height: 100%; }
   color: var(--text-color);
 }
 
-/* الزرار */
 .form-actions {
   display: flex;
   align-items: center;
@@ -97,7 +94,6 @@ html, body { height: 100%; }
 }
 
 .primary-button {
-  appearance: none;
   border: 0;
   background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-color-strong) 100%);
   color: #ffffff;
@@ -105,16 +101,13 @@ html, body { height: 100%; }
   border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
- 
 }
 
-/* 🔹 الفاصل بين خيارات الدخول */
 .alternative-login-separator {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 12px;
- 
 }
 
 .separator-line { flex: 1; height: 1px; background: #ecebf7; }
@@ -134,17 +127,11 @@ html, body { height: 100%; }
   cursor: pointer;
   transition: 0.3s ease;
 }
-
 .two-button:hover {
   border-color: #030113;
   background: #f8f8ff;
 }
-
-.two-icon {
-  width: 18px;
-  height: 18px;
-}
-
+.two-icon { width: 18px; height: 18px; }
 
 /* الصورة الي ع اليمين */
 .visual-area {
@@ -163,72 +150,74 @@ html, body { height: 100%; }
   width: 80%;
   border-radius: 18px;
   box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
-   
 }
 
-
-/* تنفع للموبايل */
-@media (max-width: 980px) {
-  .login-card { grid-template-columns: 1fr; }
-  .visual-area { order: -1; padding: 32px; }
-  .login-form { padding: 36px 24px 28px 24px; }
+/* الموووبايلل */
+@media screen and (max-width: 980px) {
+  .login-card {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+  .visual-area {
+    order: -1;
+    padding: 20px;
+    text-align: center;
+  }
+  .login-form {
+    padding: 24px 16px;
+    width: 100%;
+  }
+  body {
+    padding: 10px;
+  }
 }
     </style>
   </head>
   <body>
-    <div class="page-container">
-      <div class="outer-shell">
-        <div class="login-card">
-          <section class="login-form" aria-label="Login form">
-            <h1 class="form-title">Login</h1>
-            <p class="form-subtitle"> Lorem ipsum dolor sit amet consectetur. </p>
+    <div class="login-card">
+      <section class="login-form" aria-label="Login form">
+        <h1 class="form-title">Login</h1>
+        <p class="form-subtitle">Lorem ipsum dolor sit amet consectetur.</p>
 
-            <!-- فورم التسجيل -->
-            <form class="form-fields" action="#" method="post" autocomplete="on">
-              <div class="input-field">
-                <label for="username-input" class="input-label">Username</label>
-                <div class="input-control">
-                  <span class="input-icon" aria-hidden="true">👤</span>
-                  <input id="username-input" name="username" type="text" placeholder="Enter your username" autocomplete="username" required>
-                </div>
-              </div>
-
-              <div class="input-field">
-                <label for="password-input" class="input-label">Password</label>
-                <div class="input-control">
-                  <span class="input-icon" aria-hidden="true">🔒</span>
-                  <input id="password-input" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
-                </div>
-              </div>
-
-              <div class="form-actions">
-                <button class="primary-button" type="submit">Login Now</button>
-              </div>
-            </form>
-
-           <!-- الزرارين -->
-            <div class="two-buttons">
-            <button class="two-button" type="button">
-                <img class="two-icon" src="https://www.google.com/favicon.ico" alt="Google logo">
-                <span class="two-text">Login with Google</span>
-            </button>
-
-            <button class="two-button" type="button">
-                <i class="fa-brands fa-facebook-f"></i>
-                <span class="two-text">Login with Facebook</span>
-            </button>
+        <form class="form-fields" action="#" method="post" autocomplete="on">
+          <div class="input-field">
+            <label for="username-input" class="input-label">Username</label>
+            <div class="input-control">
+              <span class="input-icon" aria-hidden="true">👤</span>
+              <input id="username-input" name="username" type="text" placeholder="Enter your username" autocomplete="username" required>
             </div>
+          </div>
 
-          </section>
-
-         <!-- الحتة اليمين  -->
-          <aside class="visual-area" aria-hidden="true">
-            <div class="decorative-circle" aria-hidden="true"></div>
-              <img class="panel-image" src="pics art.png" alt="Person using tablet">
+          <div class="input-field">
+            <label for="password-input" class="input-label">Password</label>
+            <div class="input-control">
+              <span class="input-icon" aria-hidden="true">🔒</span>
+              <input id="password-input" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
             </div>
-          </aside>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Login Now</button>
+          </div>
+        </form>
+
+        <div class="two-buttons">
+          <button class="two-button" type="button">
+            <img class="two-icon" src="https://www.google.com/favicon.ico" alt="Google logo">
+            <span class="two-text">Login with Google</span>
+          </button>
+
+          <button class="two-button" type="button">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span class="two-text">Login with Facebook</span>
+          </button>
         </div>
-      </div>
+      </section>
+
+      <aside class="visual-area" aria-hidden="true">
+        <div class="decorative-circle" aria-hidden="true"></div>
+        <img class="panel-image" src="pics art.png" alt="Person using tablet">
+      </aside>
     </div>
   </body>
 </html>
